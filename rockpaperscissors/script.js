@@ -1,4 +1,4 @@
-let choice;
+let choice; //hi
 function computerPlay () {
     
     let rng = Math.floor(Math.random()*1000);
