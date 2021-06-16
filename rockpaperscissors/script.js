@@ -138,3 +138,5 @@ else {
 game()
 
 
+/* main two problems are saying i won when my score was less than the computers and
+when the round number doesn't go up*/
