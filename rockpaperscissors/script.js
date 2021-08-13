@@ -135,7 +135,12 @@ else {
     console.log('error')
 }
 }
-game()
+
+const startGame = document.getElementById('startGame');
+startGame.onclick = game;
+
+
+
 
 
 /* main two problems are saying i won when my score was less than the computers and
