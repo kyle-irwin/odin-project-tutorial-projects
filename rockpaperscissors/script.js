@@ -1,147 +1,113 @@
+let gameScreen = document.getElementById('gameScreen')
+let rock = 'rock';
+let paper = 'paper';
+let scissors = 'scissors';
+
+const rockButton = document.createElement('button');
+rockButton.innerText = 'rock';
+const paperButton = document.createElement('button');
+paperButton.innerText = 'paper';
+const scissorsButton = document.createElement('button');
+scissorsButton.innerText = 'scissors';
+
+
 let computerSelection; 
-function computerPlay () {
+let userSelection;
+let computerScore = 0;
+let userScore = 0;
+let roundResult
+let printRoundResult = document.createElement('p');
+
+function getComputer () {
     /*this function gets the computers random choice 
     and sets it to the var computerSelection*/
     let rng = Math.floor(Math.random()*1000);
     if (rng <= 333) {
-        computerSelection = 'rock';
+        computerSelection = rock;
     }
     else if (rng >= 334 && rng <= 667) {
-        computerSelection = 'paper';
+        computerSelection = paper;
     }
     else if (rng >= 668) {
-        computerSelection = 'scissors';
+        computerSelection = scissors;
     }
     return computerSelection;
 }
-
-let userSelection;
-let roundResult;
-
-
+function getUser () { 
+    gameScreen.appendChild(rockButton)
+    gameScreen.appendChild(paperButton)
+    gameScreen.appendChild(scissorsButton)
+    userSelection = rock;
+    /*rockButton.addEventListener('click', () => { I DO NOT KNOW HOW TO WAIT FOR THE EVENT AND THEN MAKE THE USERSELECTION VARIABLE THAT EVENT
+        userSelection = rock;
+        return userSelection;
+    })
+    paperButton.addEventListener('click', () => {
+        userSelection = paper;
+    })
+    scissorsButton.addEventListener('click', () => {
+        userSelection = scissors;
+    })*/
+}
 function playRound () {
-    computerPlay() 
-    console.log(userSelection)
-    console.log(computerSelection)
-
-    if (userSelection === 'rock' && computerSelection === 'rock') {
+    if (userSelection === rock && computerSelection === rock) {
         roundResult = 'Tie';
-        return roundResult; 
-
     }
-    else if (userSelection === 'rock' && computerSelection === 'paper') {
-        roundResult = 'You lose. Paper covers rock';
-        return roundResult; 
-
+    else if (userSelection === rock && computerSelection === paper ) {
+        roundResult = 'You Lose';
     }
-    else if (userSelection === 'rock' && computerSelection === 'scissors') {
-        roundResult = 'You win. Rock beats scissors';
-        return roundResult; 
-
+    else if (userSelection === rock  && computerSelection === scissors ) {
+        roundResult = "You Win";
     }
-    else if (userSelection === 'paper' && computerSelection === 'scissors') {
-        roundResult = 'You lose. Scissors cuts paper';
-        return roundResult; 
-
+    else if (userSelection === paper  && computerSelection === rock  ) {
+        roundResult = "You Win";
     }
-    else if (userSelection === 'paper' && computerSelection === 'rock') {
-        roundResult = 'You win. Paper covers rock';
-        return roundResult; 
-
-    }
-    else if (userSelection === 'paper' && computerSelection === 'paper') {
+    else if (userSelection === paper && computerSelection === paper) {
         roundResult = 'Tie';
-        return roundResult; 
+    }    
+    else if (userSelection === paper && computerSelection === scissors) {
+        roundResult = 'You Lose';
+    }
+    else if (userSelection === scissors && computerSelection === rock ) {
+        roundResult = 'You Lose';
 
     }
-    else if (userSelection === 'scissors' && computerSelection === 'scissors') {
-        roundResult = 'Tie'; 
-        return roundResult; 
-
-    }
-    else if (userSelection === 'scissors' && computerSelection === 'paper') {
-        roundResult = 'You win. Scissors cuts paper';
-        return roundResult; 
-    }
-    else if (userSelection === 'scissors' && computerSelection === 'rock'){
-        roundResult = 'You lose. Rock beats scissors';
-    return roundResult;
-}
-}
-
-
-function getUser () {
-    let userPrompt = prompt('Rock, Paper, or Scissors?');
-    if (userPrompt.toLowerCase() === 'rock') {
-        userSelection = 'rock';
-    }
-    else if (userPrompt.toLowerCase() === 'paper') {
-        userSelection = 'paper';
+    else if (userSelection === scissors && computerSelection === paper) {
+        roundResult = "You Win";
     }
     else {
-        userSelection = 'scissors';
+        roundResult = 'Tie';
     }
 
+    printRoundResult.textContent = roundResult;
+    gameScreen.appendChild(printRoundResult)
+}
+function printSelections () {
+    gameScreen.removeChild(rockButton)
+    gameScreen.removeChild(paperButton)
+    gameScreen.removeChild(scissorsButton)
+    
+    let printUser = document.createElement('p');
+    printUser.textContent = 'Your selection is ' + userSelection;
+    gameScreen.appendChild(printUser)
+    
+    let printComputer = document.createElement('p');
+    printComputer.textContent = 'Your opponent\'s selection is ' + computerSelection;
+    gameScreen.appendChild(printComputer)
 }
 
 
 function game () {
-let userScore = 0;
-let computerScore = 0;
-
-for (i = 1; i < 6; i++) { //loops over until best of 5 with no ties
-    let amountOfTies = 0;
     getUser()
+    getComputer()
+    printSelections()
     playRound()
-    if (roundResult === 'You lose. Paper covers rock') {
-        computerScore += 1
-    }
-    else if (roundResult === 'You lose. Rock beats scissors') {
-        computerScore +=1
-    }
-    else if (roundResult === 'You lose. Scissors cuts paper') {
-        computerScore +=1
-    }
-    else if (roundResult === 'You win. Rock beats scissors') {
-        userScore +=1
-    }
-    else if (roundResult === 'You win. Paper covers rock') {
-        userScore +=1
-    }
-    else if (roundResult === 'You win. Scissors cuts paper') {
-        userScore +=1
-    }
-    else {
-        amountOfTies += 1;
-        i -= 1;
-        
-    }
-    console.log('Round: ' + (i + amountOfTies))
-    console.log('your score = ' + userScore)
-    console.log('cpu score = ' + computerScore)
-    console.log(' ')
+
 }
 
-if (userScore > computerScore) {
-    console.log('YOU WIN!')
-}
-else if (userScore = computerScore){
-    console.log('TIE')
-}
-else if (computerScore > userScore){
-    console.log('YOU LOSE!')
-}
-else {
-    console.log('error')
-}
-}
 
 const startGame = document.getElementById('startGame');
-startGame.onclick = game;
-
-
-
-
-
-/* main two problems are saying i won when my score was less than the computers and
-when the round number doesn't go up*/
+startGame.addEventListener('click', () => {
+    gameScreen.removeChild(startGame);
+    game();
+});
