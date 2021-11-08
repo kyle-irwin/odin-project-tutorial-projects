@@ -4,7 +4,11 @@ let paper = 'paper';
 let scissors = 'scissors';
 
 const rockButton = document.createElement('button');
-
+rockButton.innerText = 'Rock';
+const paperButton = document.createElement('button');
+paperButton.innerText = 'Paper';
+const scissorsButton = document.createElement('button');
+scissorsButton.innerText = 'Scissors';
 
 let computerSelection;
 let userSelection;
@@ -29,22 +33,16 @@ function getComputer() {
     return computerSelection;
 }
 function getUser() {
-    gameScreen.appendChild(rockButton)
-    gameScreen.appendChild(paperButton)
-    gameScreen.appendChild(scissorsButton)
+    
+    
 
-    rockButton.addEventListener('click', () => {
-        userSelection = rock;
-        return userSelection;
-    })
-    paperButton.addEventListener('click', () => {
-        userSelection = paper;
-        return userSelection;
-    })
-    scissorsButton.addEventListener('click', () => {
-        userSelection = scissors;
-        return userSelection;
-    })
+
+
+
+
+
+
+    
 }
 function playRound() {
     if (userSelection === rock && computerSelection === rock) {
@@ -80,9 +78,7 @@ function playRound() {
     gameScreen.appendChild(printRoundResult)
 }
 function printSelections() {
-    gameScreen.removeChild(rockButton)
-    gameScreen.removeChild(paperButton)
-    gameScreen.removeChild(scissorsButton)
+    
 
     let printUser = document.createElement('p');
     printUser.textContent = 'Your selection is ' + userSelection;
@@ -106,5 +102,7 @@ const startGame = document.getElementById('startGame');
 startGame.addEventListener('click', () => {
     gameScreen.removeChild(startGame);
     document.body.appendChild(rockButton);
+    document.body.appendChild(paperButton);
+    document.body.appendChild(scissorsButton);
     game();
 });
