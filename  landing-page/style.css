@@ -1,13 +1,15 @@
 :root {
   --darkblue: #1f2937;
   --offwhite: #f9faf8;
+  --cornflower: #3882f6;
+  --lightgray: #bebebe;
 }
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Segoe UI", Helvetica, sans-serif;
 }
 
 nav {
@@ -38,24 +40,42 @@ main {
   background-color: var(--darkblue);
   color: var(--offwhite);
   display: flex;
+
+  justify-content: space-evenly;
+  padding-top: 4em;
+  padding-bottom: 8em;
   margin: auto;
-  justify-content: center;
-}
-.main-container {
-  background-color: var(--darkblue);
 }
 
 .left-header {
   width: 500px;
 }
+.awesome {
+  margin-bottom: 10px;
+  padding: 0px;
+  font-size: 4em;
+}
+.par1 {
+  margin-bottom: 20px;
+  padding: 0px;
+  color: var(--lightgray);
+}
 .right-header {
-  width: 500px;
-
   display: flex;
 }
-.replace {
+.placeholder {
   background-color: white;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   margin: auto;
+}
+.signup {
+  background-color: var(--cornflower);
+  border: none;
+  border-radius: 0.25em;
+  color: var(--offwhite);
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: 900;
 }
