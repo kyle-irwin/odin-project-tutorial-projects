@@ -2,7 +2,9 @@
   --darkblue: #1f2937;
   --offwhite: #f9faf8;
   --cornflower: #3882f6;
-  --lightgray: #bebebe;
+  --lightgray: #e5e7eb;
+  --gray: #7f7f7f;
+  --darkgray: #545454;
 }
 
 body {
@@ -34,7 +36,10 @@ ul {
 .logo {
   align-self: center;
   margin-left: 300px;
+  font-weight: bold;
 }
+
+/* Hero */
 
 main {
   background-color: var(--darkblue);
@@ -78,4 +83,89 @@ main {
   height: 50px;
   font-size: 15px;
   font-weight: 900;
+}
+
+/* Article */
+
+article {
+  margin: none;
+}
+.random {
+  text-align: center;
+  font-size: 1.75em;
+  margin: 1.5em 0 1.5em 0;
+}
+.box-container {
+  display: flex;
+  justify-content: space-around;
+  width: 1000px;
+  margin: auto;
+}
+.box {
+  width: 180px;
+  height: 300px;
+}
+.square {
+  border: 5px solid var(--cornflower);
+  width: 180px;
+  height: 180px;
+  border-radius: 1em;
+  margin: 0;
+}
+.subtext {
+  text-align: center;
+  color: var(--gray);
+  margin: 0;
+  padding: 0;
+}
+/* Aside */
+
+aside {
+  background-color: var(--lightgray);
+}
+.quote {
+  margin: auto;
+  width: 500px;
+  color: var(--darkgray);
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1.5em;
+  padding-top: 75px;
+}
+.thor {
+  text-align: right;
+  margin-right: 200px;
+  padding-bottom: 75px;
+}
+
+/*Action*/
+.action {
+  display: flex;
+  gap: 3rem;
+  background-color: var(--cornflower);
+  width: 800px;
+  margin: auto;
+  border-radius: 0.5em;
+  color: var(--offwhite);
+  padding: 30px 100px 30px 100px;
+}
+.action-left {
+}
+.action-left h3 {
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+.action-left p {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+.action-right {
+}
+.signup2 {
+  background-color: var(--cornflower);
+  color: var(--offwhite);
+  border: var(--offwhite) 1.5px solid;
+  border-radius: 0.25rem;
 }
