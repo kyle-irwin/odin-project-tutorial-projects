@@ -141,10 +141,11 @@ aside {
 /*Action*/
 .action {
   display: flex;
-  gap: 3rem;
+  justify-content: center;
+  gap: 6rem;
   background-color: var(--cornflower);
   width: 800px;
-  margin: auto;
+  margin: 6rem auto;
   border-radius: 0.5em;
   color: var(--offwhite);
   padding: 30px 100px 30px 100px;
@@ -166,6 +167,21 @@ aside {
 .signup2 {
   background-color: var(--cornflower);
   color: var(--offwhite);
-  border: var(--offwhite) 1.5px solid;
+  font-weight: bold;
+  border: var(--offwhite) 2px solid;
   border-radius: 0.25rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+footer {
+  background-color: var(--darkblue);
+  color: var(--lightgray);
+  text-align: center;
+  margin: 0;
+  min-height: 4rem;
+}
+.copyright {
+  padding-top: 1.5rem;
 }
