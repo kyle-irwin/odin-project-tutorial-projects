@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.header {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#container {
+  width: 480px;
+  height: 480px;
+  border: black 8px solid;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: black;
+  box-sizing: content-box;
+}
+.box {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  /*COME BACK AND REMOVE BORDER ONCE YOU GET EVENT LISTENER WORKING*/
+}
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 6px solid black;
+  border-radius: 10px;
+  width: 500px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.button {
+  margin: auto;
+  width: 100px;
+  height: 60px;
+  background-color: cornflowerblue;
+  font-weight: bolder;
+  border: 2px black solid;
+  border-radius: 10px;
+}
+#gridButton {
+  text-align: center;
+  line-height: 25px;
+}
