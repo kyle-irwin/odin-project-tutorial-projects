@@ -35,12 +35,16 @@ removeButton.addEventListener("click", reset);
 /*SETS ROW SIZE*/
 const gridButton = document.getElementById('gridButton');
 gridLength = document.getElementById('chicken').value;
+
 function gridMaker() {
     for (let i = 0; i < gridLength*gridLength; i++) {
         const box = document.createElement('div');
         box.classList.add('box');
+        box.style.setProperty('width', 480/gridLength + 'px' )
+        box.style.setProperty('height', 480/gridLength + 'px')
         container.appendChild(box);
     }
+    
 }
 
 gridButton.addEventListener('click', gridMaker)
