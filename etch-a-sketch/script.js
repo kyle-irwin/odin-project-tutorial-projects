@@ -3,6 +3,7 @@
 
 const container = document.getElementById('container');
 let gridLength = 16;
+let drawingColor = 'cornflowerblue';
 
 for (let i = 0; i < gridLength*gridLength; i++) {
     const box = document.createElement('div');
@@ -10,11 +11,6 @@ for (let i = 0; i < gridLength*gridLength; i++) {
     container.appendChild(box);
 }
 
-container.addEventListener("mouseover", function(event) {
-    event.target.style.backgroundColor = 'cornflowerblue';
-    container.style.backgroundColor = 'black';
-}
-);
 
 
 
@@ -48,3 +44,38 @@ function gridMaker() {
 }
 
 gridButton.addEventListener('click', gridMaker)
+
+/*Color picker*/
+const greenButton = document.getElementById('green');
+const blueButton = document.getElementById('blue');
+const redButton = document.getElementById('red');
+const yellowButton = document.getElementById('yellow');
+
+function green () {
+    drawingColor = 'lightgreen';
+}
+
+function blue () {
+    drawingColor = 'cornflowerblue';
+}
+
+function red () {
+    drawingColor = 'lightcoral';
+}
+function yellow () {
+    drawingColor = 'palegoldenrod';
+}
+
+greenButton.addEventListener('click', green)
+blueButton.addEventListener('click', blue)
+redButton.addEventListener('click', red)
+yellowButton.addEventListener('click', yellow)
+
+
+container.addEventListener("mouseover", function(event) {
+    
+    
+    event.target.style.backgroundColor = drawingColor;
+    container.style.backgroundColor = 'black';
+}
+);
