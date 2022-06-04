@@ -63,9 +63,27 @@
 .equals {
   background-color: lightgreen;
 }
+
 .divide,
 .multiply,
 .subtract,
 .plus {
   background-color: rgb(156, 169, 182);
+}
+
+/* Hover effects */
+.divide:hover,
+.multiply:hover,
+.subtract:hover,
+.plus:hover {
+  background-color: rgb(114, 125, 136);
+}
+.equals:hover {
+  background-color: rgb(106, 209, 106);
+}
+.clear:hover {
+  background-color: rgb(93, 174, 224);
+}
+.delete:hover {
+  background-color: rgb(14, 153, 146);
 }
