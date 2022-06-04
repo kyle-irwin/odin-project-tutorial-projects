@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  padding: none;
+  margin: 0;
+  font-size: 20px;
+}
+.calc-container {
+  background-color: lightcoral;
+  height: 35rem;
+  width: 25rem;
+  margin: auto;
+  margin-top: 5rem;
+  border-radius: 1.5rem;
+  border: 0.5rem solid darkslategray;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+.screen {
+  width: 90%;
+  height: 7rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  border: 3px solid darkslategrey;
+}
+.large-buttons {
+  display: flex;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+.large-buttons > button {
+  border: 2px solid darkslategray;
+  border-radius: 0.5rem;
+}
+.clear {
+  height: 5rem;
+  width: 10rem;
+  background-color: lightskyblue;
+}
+.delete {
+  width: 10rem;
+  background-color: lightseagreen;
+}
+.small-buttons {
+  display: flex;
+  width: 100%;
+  height: 18rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+.small-buttons > button {
+  height: 4rem;
+  width: 5rem;
+  flex-wrap: wrap;
+  border: 2px solid darkslategray;
+  border-radius: 0.3rem;
+}
+.equals {
+  background-color: lightgreen;
+}
+.divide,
+.multiply,
+.subtract,
+.plus {
+  background-color: rgb(156, 169, 182);
+}
