@@ -1,52 +1,72 @@
-let firstNumber = 1;
-let secondNumber = 2;
-let chosenOperator;
-let answer;
+let currentNum = '';
+let previousNum = '';
+let operator = '';
 
-function add (num1,num2) {
-    answer = num1 + num2;
-    return answer;
-}
+//getting dom into js vars
+const previousDisplayNumber = document.querySelector('.previousNumber');
+const currentDisplayNumber = document.querySelector('.currentNumber');
 
-function subtract (num1,num2) {
-    answer = num1 - num2;
-    return answer;
-}
+const clear = document.querySelector('.clear');
+const deleteButton = document.querySelector('.delete');
+const decimal = document.querySelector('.decimal');
+const equals = document.querySelector('.equals');
 
-function multiply (num1,num2) {
-    answer = num1 * num2;
-    return answer;
-}
-
-function divide (num1,num2) {
-    answer = num1 / num2;
-    return answer;
-}
+const numberButtons = document.querySelectorAll('.number');
+const operators = document.querySelectorAll('.operator')
 
 
-/*User will enter #, operator, #. The operator that is selected will be stored 
-in the chosenOperator variable. When equals is pressed, this function will be called.
-It will check what operator has been chosen and then apply it to the numbers and return
-the answer  */
-function operate () {
-    if (chosenOperator = 'add') {
-        add(firstNumber,secondNumber)
+//functionality
+numberButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        handleNumber(e.target.textContent);
+    });
+});
+
+function handleNumber(number) {
+   if (currentNum.length < 10) {
+    currentNum += number;
+    currentDisplayNumber.textContent = currentNum;
+    console.log(number)
+   }}
+   console.log(currentDisplayNumber.textContent)
+
+operators.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        handleOperator(e.target.textContent);
+    });
+   });
+
+   function handleOperator(opp) {
+    operator = opp;
+    previousNum = currentNum;
+    previousDisplayNumber.textContent = previousNum + ' ' + operator;
+    currentDisplayNumber.textContent = '';
+    currentNum = '';
+   }
+
+
+
+function calculate () {
+    previousNum = Number(previousNum);
+    currentNum = Number(currentNum);
+
+    if (operator === '+') {
+        previousNum += currentNum;
     }
-    else if (chosenOperator = 'subtract') {
-        subtract(firstNumber,secondNumber)
+    else if (operator === '-') {
+        previousNum -= currentNum;
+
     }
-    else if (chosenOperator = 'multiply') {
-        multiply(firstNumber,secondNumber)
+    else if (operator === 'x') {
+        previousNum *= currentNum;
+
     }
-    else{
-        divide(firstNumber,secondNumber)
+    else {
+        previousNum /= currentNum;
+
     }
+
+    previousDisplayNumber.textContent = '';
+    currentDisplayNumber.textContent = previousNum;
+    currentNum = previousNum;
 }
-
-
-
-
-console.log(add(firstNumber,secondNumber))
-console.log(subtract(firstNumber,secondNumber))
-console.log(multiply(firstNumber,secondNumber))
-console.log(divide(firstNumber,secondNumber))

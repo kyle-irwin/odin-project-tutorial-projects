@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  padding: none;
+  padding: 0;
   margin: 0;
   font-size: 20px;
 }
@@ -17,14 +17,45 @@
   flex-direction: column;
   align-items: center;
 }
+.topCalc {
+  display:flex;
+  width:90%;
+  margin-top:10px;
+  gap:1rem;
+}
+
 .screen {
-  width: 90%;
+  width: 70%;
   height: 7rem;
   background-color: white;
   border-radius: 0.5rem;
-  margin-top: 1rem;
   border: 3px solid darkslategrey;
+  display: flex;
+  flex-direction:column;
+  align-items: flex-end;
 }
+.ac {
+  width: 30%;
+  border: white solid 5px;
+  border-radius: 0.5rem;
+  border: 3px solid sandybrown;
+  background-color:  lightcoral; 
+  font-size: 2rem;
+  color:white;
+}
+.previousNumber {
+height: 3rem;
+font-size:1.5rem;
+padding:10px;
+}
+.currentNumber {
+  height:4rem;
+  font-size:1.8rem;
+  text-align:end;
+  padding:10px;
+}
+
+
 .large-buttons {
   display: flex;
   margin-top: 1rem;
