@@ -7,6 +7,7 @@ const previousDisplayNumber = document.querySelector('.previousNumber');
 const currentDisplayNumber = document.querySelector('.currentNumber');
 
 const clear = document.querySelector('.clear');
+clear.addEventListener('click', clearCalculator);
 const deleteButton = document.querySelector('.delete');
 const decimal = document.querySelector('.decimal');
 const equals = document.querySelector('.equals');
@@ -23,12 +24,10 @@ numberButtons.forEach((btn) => {
 });
 
 function handleNumber(number) {
-   if (currentNum.length < 10) {
+   if (currentNum.length < 8) {
     currentNum += number;
     currentDisplayNumber.textContent = currentNum;
-    console.log(number)
    }}
-   console.log(currentDisplayNumber.textContent)
 
 operators.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -39,11 +38,27 @@ operators.forEach((btn) => {
    function handleOperator(opp) {
     operator = opp;
     previousNum = currentNum;
-    previousDisplayNumber.textContent = previousNum + ' ' + operator;
+
+    if (previousNum.length < 8) {
+        previousDisplayNumber.textContent = previousNum + ' ' + operator;
+
+    }
+    else {
+        previousDisplayNumber.textContent = previousNum.slice(0,8) + '...' + operator;
+    }
+
     currentDisplayNumber.textContent = '';
     currentNum = '';
    }
 
+   function clearCalculator() {
+    
+    currentNum = '';
+    previousNum = '';
+    operator = '';
+    currentDisplayNumber.textContent = '0';
+    previousDisplayNumber.textContent = '';
+   }
 
 
 function calculate () {
@@ -65,8 +80,18 @@ function calculate () {
         previousNum /= currentNum;
 
     }
-
-    previousDisplayNumber.textContent = '';
-    currentDisplayNumber.textContent = previousNum;
+    previousNum = previousNum.toString();
+    displayResults();
+    
     currentNum = previousNum;
+}
+
+function displayResults () {
+    previousDisplayNumber.textContent = '';
+    if (previousNum.length < 11) {
+        currentDisplayNumber.textContent = previousNum;
+    }
+    else {
+        currentDisplayNumber.textContent = previousNum.slice(0,11) + '...';
+    }
 }
